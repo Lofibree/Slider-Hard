@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+
+}
+
+.slider {
+    width: 1024px;
+    height: 681px;
+    position: relative;
+    background: lightgray;
+    background-size: contain;
+
+
+    &_before {
+        width: 512px;
+        height: 681px;
+        position: absolute;
+        z-index: 2;
+        background: url('./assets/lesBeforeD.jpg') no-repeat center center;
+        background-attachment: fixed;
+        background-size: 1024px 681px;
+    }
+
+    &_after {
+        width: 1024px;
+        height: 681px;
+        position: absolute;
+        background: url('./assets/lesAfterD.jpg') no-repeat center center;
+        background-attachment: fixed;
+        background-size: 1024px 681px;
+    }
+
+    &_resize {
+        width: 5px;
+        position: absolute;
+        height: 100%;
+        right: 0;
+        top: 0;
+        background-color: black;
+        cursor: e-resize;
+
+
+        &:before {
+            content: '<';
+            color: blue;
+            position: absolute;
+            font-size: 40px;
+            font-weight: 900;
+            top: 50%;
+            right: 5px;
+            z-index: 3;
+        }
+
+        &:after {
+            content: '>';
+            color: blue;
+            position: absolute;
+            font-size: 40px;
+            font-weight: 900;
+            top: 50%;
+            left: 5px;
+            z-index: 3;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .slider {
+        width: 100%;
+        height: 250px;
+
+        &_before {
+            width: 100%;
+            background-size: 600px 300px;
+        }
+
+        &_after {
+            width: 100%;
+            background-size: 600px 300px;
+        }
+
+        &_resize {
+            width: 5px;
+            position: absolute;
+            height: 275px;
+        }
+    }
+}
